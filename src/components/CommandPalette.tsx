@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command";
 import { tools } from "@/lib/tools";
 
-interface Props {
-  onSelect: (toolId: string) => void;
-}
-
-export function CommandPalette({ onSelect }: Props) {
+export function CommandPalette({ onSelect }: { onSelect: (toolId: string) => void }) {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -30,7 +28,7 @@ export function CommandPalette({ onSelect }: Props) {
             <CommandItem
               key={tool.id}
               value={tool.name}
-              onSelect={() => { onSelect(tool.id); setOpen(false); }}
+              onSelect={() => { navigate(tool.path); setOpen(false); }}
             >
               <tool.icon className="mr-2 h-4 w-4" />
               <div>

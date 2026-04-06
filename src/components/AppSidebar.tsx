@@ -1,4 +1,5 @@
 import { Braces, Binary, Type, Shield, Clock, Wrench } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
   SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader,
@@ -18,14 +19,15 @@ interface Props {
 export function AppSidebar({ activeTool, onSelectTool }: Props) {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
+  const navigate = useNavigate();
 
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
-        <div className="flex items-center gap-2">
+        <button onClick={() => navigate("/")} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <Wrench className="h-5 w-5 text-foreground" />
           {!collapsed && <span className="font-semibold text-sm">DevUtils</span>}
-        </div>
+        </button>
       </SidebarHeader>
       <SidebarContent>
         {categories.map(cat => {

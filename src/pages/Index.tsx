@@ -1,76 +1,55 @@
-import { useState, useEffect } from "react";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
-import { CommandPalette } from "@/components/CommandPalette";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { JsonFormatter } from "@/components/tools/JsonFormatter";
-import { DiffChecker } from "@/components/tools/DiffChecker";
-import { JwtDecoder } from "@/components/tools/JwtDecoder";
-import { Base64Tool } from "@/components/tools/Base64Tool";
-import { CaseConverter } from "@/components/tools/CaseConverter";
-import { CronParser } from "@/components/tools/CronParser";
-import { PasswordGenerator } from "@/components/tools/PasswordGenerator";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { tools } from "@/lib/tools";
-import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-const toolComponents: Record<string, React.FC> = {
-  "json-formatter": JsonFormatter,
-  "diff-checker": DiffChecker,
-  "jwt-decoder": JwtDecoder,
-  "base64": Base64Tool,
-  "case-converter": CaseConverter,
-  "cron-parser": CronParser,
-  "password-generator": PasswordGenerator,
-};
+import { Wrench, ArrowRight } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Index() {
-  const [activeTool, setActiveTool] = useState(() => {
-    return localStorage.getItem("devutils-active-tool") || "json-formatter";
-  });
+  const navigate = useNavigate();
 
+  // Set home page SEO
   useEffect(() => {
-    localStorage.setItem("devutils-active-tool", activeTool);
-    const tool = tools.find(t => t.id === activeTool);
-    if (tool) {
-      document.title = tool.metaTitle;
-      const meta = document.querySelector('meta[name="description"]');
-      if (meta) meta.setAttribute("content", tool.metaDescription);
-    }
-  }, [activeTool]);
-
-  const ActiveComponent = toolComponents[activeTool] || JsonFormatter;
+    document.title = "DevUtils — Free Online Developer Tools";
+    const setMeta = (name: string, content: string, property = false) => {
+      const attr = property ? "property" : "name";
+      let el = document.querySelector(`meta[${attr}="${name}"]`);
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, name); document.head.appendChild(el); }
+      el.setAttribute("content", content);
+    };
+    setMeta("description", "Free online developer tools — JSON formatter, diff checker, JWT decoder, Base64 encoder, case converter, cron parser, password generator. All client-side, fast & private.");
+    setMeta("keywords", "developer tools, online dev tools, json formatter, base64 encoder, jwt decoder, diff checker, case converter, cron parser, password generator, free developer utilities");
+  }, []);
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full">
-        <AppSidebar activeTool={activeTool} onSelectTool={setActiveTool} />
-        <div className="flex-1 flex flex-col min-w-0">
-          <header className="h-12 flex items-center justify-between border-b border-border px-4 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-            <div className="flex items-center gap-2">
-              <SidebarTrigger />
-              <Button
-                variant="outline"
-                size="sm"
-                className="hidden sm:flex items-center gap-2 text-muted-foreground"
-                onClick={() => {
-                  const e = new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true });
-                  document.dispatchEvent(e);
-                }}
-              >
-                <Search className="h-3.5 w-3.5" />
-                <span className="text-xs">Search tools...</span>
-                <kbd className="ml-2 text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono">⌘K</kbd>
-              </Button>
-            </div>
-            <ThemeToggle />
-          </header>
-          <main className="flex-1 p-4 lg:p-6 max-w-6xl">
-            <ActiveComponent />
-          </main>
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="inline-flex items-center gap-2 bg-muted px-3 py-1.5 rounded-full text-xs font-medium text-muted-foreground mb-6">
+          <Wrench className="h-3.5 w-3.5" />
+          100% Client-Side · Fast · Private
         </div>
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          Developer Utility Hub
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          Free, fast, privacy-first developer tools. No data leaves your browser.
+        </p>
       </div>
-      <CommandPalette onSelect={setActiveTool} />
-    </SidebarProvider>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full max-w-4xl">
+        {tools.map(tool => (
+          <button
+            key={tool.id}
+            onClick={() => navigate(tool.path)}
+            className="tool-panel p-5 text-left hover:bg-accent/50 transition-colors group"
+          >
+            <div className="flex items-start justify-between mb-3">
+              <tool.icon className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+              <ArrowRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <h2 className="font-semibold text-sm mb-1">{tool.name}</h2>
+            <p className="text-xs text-muted-foreground">{tool.description}</p>
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
