@@ -32,7 +32,7 @@ export function AppSidebar({ activeTool, onSelectTool }: Props) {
           const Icon = categoryIcons[cat];
           const catTools = getToolsByCategory(cat);
           return (
-            <SidebarGroup key={cat} defaultOpen>
+            <SidebarGroup key={cat}>
               <SidebarGroupLabel>
                 <Icon className="h-3.5 w-3.5 mr-1.5" />
                 {!collapsed && cat}
