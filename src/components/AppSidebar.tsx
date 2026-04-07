@@ -1,4 +1,6 @@
-import { Braces, Binary, Type, Shield, Clock, Wrench } from "lucide-react";
+import {
+  Braces, Binary, Type, Clock, Wrench, Code,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
@@ -8,7 +10,7 @@ import {
 import { categories, getToolsByCategory } from "@/lib/tools";
 
 const categoryIcons: Record<string, any> = {
-  JSON: Braces, Encoders: Binary, Text: Type, Generators: Clock, Security: Shield,
+  Text: Type, Encoders: Binary, Developer: Code,
 };
 
 interface Props {
