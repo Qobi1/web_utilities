@@ -20,9 +20,15 @@ export function useSEO(tool: Tool | undefined) {
 
     setMeta("description", tool.metaDescription);
     setMeta("keywords", tool.keywords);
+    setMeta("robots", "index, follow");
     setMeta("og:title", tool.metaTitle, true);
     setMeta("og:description", tool.metaDescription, true);
     setMeta("og:type", "website", true);
+    setMeta("og:url", window.location.origin + tool.path, true);
+    setMeta("og:site_name", "DevUtils", true);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", tool.metaTitle);
+    setMeta("twitter:description", tool.metaDescription);
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;

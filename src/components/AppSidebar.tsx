@@ -1,7 +1,7 @@
 import {
-  Braces, Binary, Type, Clock, Wrench, Code,
+  Binary, Type, Clock, Wrench, Code,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
   SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader,
@@ -21,45 +21,48 @@ interface Props {
 export function AppSidebar({ activeTool, onSelectTool }: Props) {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
-  const navigate = useNavigate();
 
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
-        <button onClick={() => navigate("/")} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Wrench className="h-5 w-5 text-foreground" />
+        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Wrench className="h-5 w-5 text-foreground" aria-hidden="true" />
           {!collapsed && <span className="font-semibold text-sm">DevUtils</span>}
-        </button>
+        </Link>
       </SidebarHeader>
       <SidebarContent>
-        {categories.map(cat => {
-          const Icon = categoryIcons[cat];
-          const catTools = getToolsByCategory(cat);
-          return (
-            <SidebarGroup key={cat}>
-              <SidebarGroupLabel>
-                <Icon className="h-3.5 w-3.5 mr-1.5" />
-                {!collapsed && cat}
-              </SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {catTools.map(tool => (
-                    <SidebarMenuItem key={tool.id}>
-                      <SidebarMenuButton
-                        onClick={() => onSelectTool(tool.id)}
-                        isActive={activeTool === tool.id}
-                        tooltip={tool.name}
-                      >
-                        <tool.icon className="h-4 w-4" />
-                        {!collapsed && <span>{tool.name}</span>}
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          );
-        })}
+        <nav aria-label="Tool categories">
+          {categories.map(cat => {
+            const Icon = categoryIcons[cat];
+            const catTools = getToolsByCategory(cat);
+            return (
+              <SidebarGroup key={cat}>
+                <SidebarGroupLabel>
+                  <Icon className="h-3.5 w-3.5 mr-1.5" aria-hidden="true" />
+                  {!collapsed && cat}
+                </SidebarGroupLabel>
+                <SidebarGroupContent>
+                  <SidebarMenu>
+                    {catTools.map(tool => (
+                      <SidebarMenuItem key={tool.id}>
+                        <SidebarMenuButton
+                          asChild
+                          isActive={activeTool === tool.id}
+                          tooltip={tool.name}
+                        >
+                          <Link to={tool.path} onClick={() => onSelectTool(tool.id)}>
+                            <tool.icon className="h-4 w-4" aria-hidden="true" />
+                            {!collapsed && <span>{tool.name}</span>}
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    ))}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+            );
+          })}
+        </nav>
       </SidebarContent>
     </Sidebar>
   );

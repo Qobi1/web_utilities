@@ -29,8 +29,9 @@ export function CommandPalette({ onSelect }: { onSelect: (toolId: string) => voi
               key={tool.id}
               value={tool.name}
               onSelect={() => { navigate(tool.path); setOpen(false); }}
+              className="min-h-[44px]"
             >
-              <tool.icon className="mr-2 h-4 w-4" />
+              <tool.icon className="mr-2 h-4 w-4" aria-hidden="true" />
               <div>
                 <div className="font-medium">{tool.name}</div>
                 <div className="text-xs text-muted-foreground">{tool.description}</div>

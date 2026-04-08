@@ -104,23 +104,24 @@ export default function ToolPage() {
       <div className="min-h-screen flex w-full">
         <AppSidebar activeTool={currentToolId} onSelectTool={handleSelectTool} />
         <div className="flex-1 flex flex-col min-w-0">
-          <header className="h-12 flex items-center justify-between border-b border-border px-4 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+          <header className="h-12 flex items-center justify-between border-b border-border px-4 bg-card/50 backdrop-blur-sm sticky top-0 z-10" role="banner">
             <div className="flex items-center gap-2">
-              <SidebarTrigger />
+              <SidebarTrigger aria-label="Toggle sidebar" />
               <Button
                 variant="outline"
                 size="sm"
-                className="hidden sm:flex items-center gap-2 text-muted-foreground"
+                className="hidden sm:flex items-center gap-2 text-muted-foreground min-h-[36px]"
                 onClick={() => document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }))}
+                aria-label="Search tools (Cmd+K)"
               >
-                <Search className="h-3.5 w-3.5" />
+                <Search className="h-3.5 w-3.5" aria-hidden="true" />
                 <span className="text-xs">Search tools...</span>
-                <kbd className="ml-2 text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono">⌘K</kbd>
+                <kbd className="ml-2 text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono" aria-hidden="true">⌘K</kbd>
               </Button>
             </div>
             <ThemeToggle />
           </header>
-          <main className="flex-1 p-4 lg:p-6 max-w-6xl">
+          <main className="flex-1 p-4 lg:p-6 max-w-6xl" role="main">
             {ActiveComponent ? (
               <Suspense fallback={<ToolLoader />}>
                 <ActiveComponent />
