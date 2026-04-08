@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://devutils.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://devutils.app/case-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/remove-duplicates</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/sort-text</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/word-counter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/reverse-text</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/remove-spaces</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/extract-emails-urls</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/text-to-slug</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/find-replace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/base64</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/url-encoder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/html-encoder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/json-escape</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/binary-text</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/hex-text</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/unicode-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/json-formatter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://devutils.app/json-xml</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/yaml-json</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/sql-formatter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/regex-tester</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/uuid-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/code-minifier</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/http-headers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/api-tester</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/cron-parser</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/diff-checker</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/jwt-decoder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devutils.app/password-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
