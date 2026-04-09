@@ -22,6 +22,7 @@ export default defineConfig(({ mode }) => ({
     Sitemap({
       hostname: "https://toolifyhub.net",
       dynamicRoutes: [
+        "/privacy",
         "/case-converter",
         "/remove-duplicates",
         "/sort-text",

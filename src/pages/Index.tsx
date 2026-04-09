@@ -35,7 +35,8 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-background flex flex-col items-center p-6 pb-10">
+      <div className="flex-1 flex flex-col items-center justify-center w-full max-w-4xl">
       <div className="text-center max-w-2xl mx-auto mb-12">
         <div className="flex justify-center mb-6">
           <img
@@ -57,7 +58,7 @@ export default function Index() {
           Free, fast, privacy-first tools for text, files, and everyday tasks. Nothing leaves your browser.
         </p>
       </div>
-      <nav aria-label="All tools" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full max-w-4xl">
+      <nav aria-label="All tools" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full max-w-4xl mb-12">
         {tools.map(tool => (
           <Link
             key={tool.id}
@@ -73,6 +74,12 @@ export default function Index() {
           </Link>
         ))}
       </nav>
+      </div>
+      <footer className="shrink-0 pt-6 border-t border-border w-full max-w-4xl text-center text-xs text-muted-foreground">
+        <Link to="/privacy" className="hover:text-foreground transition-colors underline-offset-4 hover:underline">
+          Privacy Policy
+        </Link>
+      </footer>
     </div>
   );
 }

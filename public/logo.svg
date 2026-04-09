@@ -8,5 +8,5 @@
   <rect width="36" height="36" x="0" y="2" rx="8" fill="#0f172a" stroke="url(#lg)" stroke-width="1"/>
   <path fill="url(#lg)" d="M9.5 12 8 13.2 5.5 18l2.5 4.8L9.5 24h2l-3-6 3-6h-2zm15 0h-2l3 6-3 6h2l1.5-1.2 2.5-4.8-2.5-4.8L24.5 12z"/>
   <path stroke="#94a3b8" stroke-width="1.7" stroke-linecap="round" d="M18 13v10"/>
-  <text x="44" y="27" fill="#f8fafc" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16.5" font-weight="700" letter-spacing="-0.03em">UtilityHub</text>
+  <text x="44" y="27" fill="#f8fafc" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" font-weight="700" letter-spacing="-0.03em">ToolifyHub</text>
 </svg>

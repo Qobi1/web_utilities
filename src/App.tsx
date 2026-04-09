@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 
 const Index = lazy(() => import("./pages/Index"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const ToolPage = lazy(() => import("./pages/ToolPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -37,6 +38,7 @@ const App = () => (
         <Suspense fallback={<RouteLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/:toolId" element={<ToolPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
