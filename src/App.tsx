@@ -1,9 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { lazy, Suspense } from "react";
+import { useEffect } from "react";
+import { trackPageView } from "@/lib/analytics";
 
 const Index = lazy(() => import("./pages/Index"));
 const ToolPage = lazy(() => import("./pages/ToolPage"));
@@ -17,12 +19,21 @@ function RouteLoader() {
   );
 }
 
+function AnalyticsListener() {
+  const location = useLocation();
+  useEffect(() => {
+    trackPageView(location.pathname + location.search + location.hash);
+  }, [location.pathname, location.search, location.hash]);
+  return null;
+}
+
 const App = () => (
   <ThemeProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AnalyticsListener />
         <Suspense fallback={<RouteLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
