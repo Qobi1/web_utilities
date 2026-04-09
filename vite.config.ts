@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     // 2. Add the Sitemap configuration here
     Sitemap({
-      hostname: "https://devutils.app",
+      hostname: "https://	toolifyhub.net",
       dynamicRoutes: [
         "/case-converter",
         "/remove-duplicates",
