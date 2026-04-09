@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     // 2. Add the Sitemap configuration here
     Sitemap({
-      hostname: "https://	toolifyhub.net",
+      hostname: "https://toolifyhub.net",
       dynamicRoutes: [
         "/case-converter",
         "/remove-duplicates",
@@ -61,9 +61,5 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
-  "overrides": {
-    "@vitejs/plugin-react-swc": {
-      "vite": "^8.0.0"
-    }
-  }
+
 }));
