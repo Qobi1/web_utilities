@@ -134,101 +134,101 @@ export const tools: Tool[] = [
     keywords: "unicode converter, text to unicode, unicode to text, unicode code point, unicode encoder, unicode decoder",
   },
 
-  // ── Developer Tools ──
+  // ── Technical Tools ──
   {
     id: "json-formatter", name: "JSON Formatter", description: "Format & validate JSON with syntax highlighting",
-    category: "Developer", icon: Braces, path: "/json-formatter",
+    category: "Technical", icon: Braces, path: "/json-formatter",
     metaTitle: "Free JSON Formatter & Validator — Pretty Print JSON Online",
     metaDescription: "Format, beautify, minify, and validate JSON data online. Syntax highlighting, tree view, error detection. 100% client-side.",
     keywords: "json formatter, json validator, json beautifier, json minifier, json parser, pretty print json, format json online",
   },
   {
     id: "json-xml", name: "JSON ↔ XML", description: "Convert between JSON and XML formats",
-    category: "Developer", icon: FileCode, path: "/json-xml",
+    category: "Technical", icon: FileCode, path: "/json-xml",
     metaTitle: "Free JSON to XML Converter — JSON ↔ XML Online",
     metaDescription: "Convert JSON to XML and XML to JSON instantly. Handles nested objects and arrays. 100% client-side.",
     keywords: "json to xml, xml to json, json xml converter, convert json to xml, convert xml to json, json xml online",
   },
   {
     id: "yaml-json", name: "YAML ↔ JSON", description: "Convert between YAML and JSON formats",
-    category: "Developer", icon: FileText, path: "/yaml-json",
+    category: "Technical", icon: FileText, path: "/yaml-json",
     metaTitle: "Free YAML to JSON Converter — YAML ↔ JSON Online",
     metaDescription: "Convert YAML to JSON and JSON to YAML instantly. Perfect for config files and data interchange.",
     keywords: "yaml to json, json to yaml, yaml converter, yaml json converter, yaml parser, convert yaml online",
   },
   {
     id: "sql-formatter", name: "SQL Formatter", description: "Format and beautify SQL queries",
-    category: "Developer", icon: Database, path: "/sql-formatter",
+    category: "Technical", icon: Database, path: "/sql-formatter",
     metaTitle: "Free SQL Formatter & Beautifier — Format SQL Online",
     metaDescription: "Format and beautify SQL queries with proper indentation and syntax. Supports multiple SQL dialects.",
     keywords: "sql formatter, sql beautifier, format sql, sql pretty print, sql indent, sql formatter online, beautify sql",
   },
   {
     id: "regex-tester", name: "Regex Tester", description: "Test regular expressions with real-time matching",
-    category: "Developer", icon: Regex, path: "/regex-tester",
+    category: "Technical", icon: Regex, path: "/regex-tester",
     metaTitle: "Free Regex Tester — Test Regular Expressions Online",
     metaDescription: "Test and debug regular expressions with real-time matching, flags support, and match highlighting.",
     keywords: "regex tester, regex test, regular expression tester, regex debugger, regex online, test regex, regex matcher",
   },
   {
     id: "uuid-generator", name: "UUID Generator", description: "Generate random UUIDs (v4)",
-    category: "Developer", icon: Fingerprint, path: "/uuid-generator",
+    category: "Technical", icon: Fingerprint, path: "/uuid-generator",
     metaTitle: "Free UUID Generator — Generate Random UUIDs v4 Online",
     metaDescription: "Generate random UUID v4 identifiers instantly. Bulk generation up to 100 at once. One-click copy.",
     keywords: "uuid generator, generate uuid, uuid v4, random uuid, guid generator, unique id generator, uuid online",
   },
   {
     id: "code-minifier", name: "Code Minifier", description: "Minify or beautify JavaScript and CSS",
-    category: "Developer", icon: Minimize2, path: "/code-minifier",
+    category: "Technical", icon: Minimize2, path: "/code-minifier",
     metaTitle: "Free Code Minifier & Beautifier — Minify JS & CSS Online",
     metaDescription: "Minify and beautify JavaScript and CSS code. Reduce file size and improve readability. Client-side only.",
     keywords: "code minifier, js minifier, css minifier, javascript minify, css minify, code beautifier, uglify online",
   },
   {
     id: "http-headers", name: "HTTP Headers", description: "Parse and analyze HTTP headers",
-    category: "Developer", icon: Network, path: "/http-headers",
+    category: "Technical", icon: Network, path: "/http-headers",
     metaTitle: "Free HTTP Headers Parser — Analyze HTTP Headers Online",
     metaDescription: "Parse and analyze HTTP headers into a readable table format. Understand request and response headers.",
     keywords: "http headers parser, parse http headers, http header analyzer, view headers, http header tool",
   },
   {
     id: "api-tester", name: "API Tester", description: "Send HTTP requests and inspect responses",
-    category: "Developer", icon: Send, path: "/api-tester",
+    category: "Technical", icon: Send, path: "/api-tester",
     metaTitle: "Free API Request Tester — Send HTTP Requests Online",
     metaDescription: "Send GET, POST, PUT, DELETE requests and inspect responses. Test APIs directly from your browser.",
     keywords: "api tester, http request tester, rest api tester, send request online, api client, postman alternative online",
   },
   {
     id: "cron-parser", name: "Cron Parser", description: "Convert cron expressions to English",
-    category: "Developer", icon: Clock, path: "/cron-parser",
+    category: "Technical", icon: Clock, path: "/cron-parser",
     metaTitle: "Free Cron Expression Parser & Generator — Cron to English",
     metaDescription: "Convert cron expressions into plain English. Understand cron schedules with visual breakdown and examples.",
     keywords: "cron parser, cron expression, cron to english, cron schedule, crontab guru, cron generator, cron translator",
   },
   {
     id: "diff-checker", name: "Diff Checker", description: "Compare two texts side-by-side",
-    category: "Developer", icon: FileCode, path: "/diff-checker",
+    category: "Technical", icon: FileCode, path: "/diff-checker",
     metaTitle: "Free Diff Checker — Compare Text Side by Side Online",
     metaDescription: "Compare two blocks of text and see additions, deletions, and changes highlighted. Fast and private.",
     keywords: "diff checker, text compare, compare texts, online diff, text diff, code diff, side by side comparison",
   },
   {
     id: "jwt-decoder", name: "JWT Decoder", description: "Decode and inspect JWT tokens",
-    category: "Developer", icon: KeyRound, path: "/jwt-decoder",
+    category: "Technical", icon: KeyRound, path: "/jwt-decoder",
     metaTitle: "Free JWT Decoder — Decode JSON Web Tokens Online",
     metaDescription: "Decode JWT tokens into header, payload, and signature. Inspect claims, expiry, and algorithm. No data sent to servers.",
     keywords: "jwt decoder, jwt parser, decode jwt, json web token decoder, jwt inspector, jwt debugger",
   },
   {
     id: "password-generator", name: "Password Generator", description: "Generate secure passwords with strength meter",
-    category: "Developer", icon: Shield, path: "/password-generator",
+    category: "Technical", icon: Shield, path: "/password-generator",
     metaTitle: "Free Password Generator — Secure & Customizable Passwords",
     metaDescription: "Generate strong, secure passwords with customizable length, symbols, numbers. Includes strength meter. Client-side.",
     keywords: "password generator, strong password, secure password, random password, password strength checker",
   },
 ];
 
-export const categories = ["Text", "Encoders", "Developer"];
+export const categories = ["Text", "Encoders", "Technical"];
 
 export function getToolsByCategory(category: string) {
   return tools.filter(t => t.category === category);

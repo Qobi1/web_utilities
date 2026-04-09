@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 40" fill="none" aria-hidden="true">
   <defs>
     <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#22d3ee"/>
@@ -8,5 +8,5 @@
   <rect width="36" height="36" x="0" y="2" rx="8" fill="#0f172a" stroke="url(#lg)" stroke-width="1"/>
   <path fill="url(#lg)" d="M9.5 12 8 13.2 5.5 18l2.5 4.8L9.5 24h2l-3-6 3-6h-2zm15 0h-2l3 6-3 6h2l1.5-1.2 2.5-4.8-2.5-4.8L24.5 12z"/>
   <path stroke="#94a3b8" stroke-width="1.7" stroke-linecap="round" d="M18 13v10"/>
-  <text x="44" y="27" fill="#f8fafc" font-family="ui-sans-serif,system-ui,sans-serif" font-size="19" font-weight="700" letter-spacing="-0.04em">DevUtils</text>
+  <text x="44" y="27" fill="#f8fafc" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16.5" font-weight="700" letter-spacing="-0.03em">UtilityHub</text>
 </svg>

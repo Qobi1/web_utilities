@@ -8,9 +8,10 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { categories, getToolsByCategory } from "@/lib/tools";
+import { SITE_NAME } from "@/lib/brand";
 
 const categoryIcons: Record<string, any> = {
-  Text: Type, Encoders: Binary, Developer: Code,
+  Text: Type, Encoders: Binary, Technical: Code,
 };
 
 interface Props {
@@ -25,7 +26,7 @@ export function AppSidebar({ activeTool, onSelectTool }: Props) {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
-        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0" aria-label="DevUtils home">
+        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0" aria-label={`${SITE_NAME} home`}>
           <img
             src="/logo-mark.svg"
             alt=""
@@ -34,7 +35,7 @@ export function AppSidebar({ activeTool, onSelectTool }: Props) {
             className="h-7 w-7 shrink-0"
             decoding="async"
           />
-          {!collapsed && <span className="font-semibold text-sm truncate">DevUtils</span>}
+          {!collapsed && <span className="font-semibold text-sm truncate">{SITE_NAME}</span>}
         </Link>
       </SidebarHeader>
       <SidebarContent>

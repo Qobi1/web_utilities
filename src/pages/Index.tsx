@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { tools } from "@/lib/tools";
 import { ArrowRight } from "lucide-react";
 import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_NAME } from "@/lib/brand";
 
 export default function Index() {
   useEffect(() => {
-    document.title = "DevUtils — Free Online Developer Tools";
+    document.title = `${SITE_NAME} — Free Online Tools`;
     const setMeta = (name: string, content: string, property = false) => {
       const attr = property ? "property" : "name";
       let el = document.querySelector(`meta[${attr}="${name}"]`);
@@ -15,14 +16,14 @@ export default function Index() {
     };
     const origin = typeof window !== "undefined" ? window.location.origin : SITE_ORIGIN;
     const ogImage = `${origin}/og-image.png`;
-    setMeta("description", "Free online developer tools — JSON formatter, diff checker, JWT decoder, Base64 encoder, case converter, cron parser, password generator. All client-side, fast & private.");
-    setMeta("keywords", "developer tools, online dev tools, json formatter, base64 encoder, jwt decoder, diff checker, case converter, cron parser, password generator, free developer utilities");
+    setMeta("description", "Free online tools — text, encoding, JSON, diff, passwords, and more. All client-side, fast & private.");
+    setMeta("keywords", "online tools, free utilities, json formatter, base64 encoder, text tools, diff checker, case converter, cron parser, password generator, free tools");
     setMeta("robots", "index, follow");
-    setMeta("og:title", "DevUtils — Free Online Developer Tools", true);
-    setMeta("og:description", "Free online developer tools — JSON formatter, diff checker, JWT decoder, Base64, and more. All client-side, fast & private.", true);
+    setMeta("og:title", `${SITE_NAME} — Free Online Tools`, true);
+    setMeta("og:description", "Free online tools — text, encoding, JSON, and more. All client-side, fast & private.", true);
     setMeta("og:url", `${origin}/`, true);
     setMeta("og:image", ogImage, true);
-    setMeta("og:image:alt", "DevUtils — free online developer tools", true);
+    setMeta("og:image:alt", `${SITE_NAME} — free online tools`, true);
     setMeta("twitter:image", ogImage);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
@@ -39,8 +40,8 @@ export default function Index() {
         <div className="flex justify-center mb-6">
           <img
             src="/logo.svg"
-            alt="DevUtils"
-            width={180}
+            alt={SITE_NAME}
+            width={210}
             height={40}
             className="h-9 sm:h-10 w-auto"
             decoding="async"
@@ -50,10 +51,10 @@ export default function Index() {
           100% Client-Side · Fast · Private
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-          Developer Utility Hub
+          Your online utility hub
         </h1>
         <p className="text-lg text-muted-foreground">
-          Free, fast, privacy-first developer tools. No data leaves your browser.
+          Free, fast, privacy-first tools for text, files, and everyday tasks. Nothing leaves your browser.
         </p>
       </div>
       <nav aria-label="All tools" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full max-w-4xl">

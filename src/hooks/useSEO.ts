@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Tool } from "@/lib/tools";
 import { SITE_ORIGIN } from "@/lib/site";
+import { SITE_NAME } from "@/lib/brand";
 
 export function useSEO(tool: Tool | undefined) {
   useEffect(() => {
@@ -30,8 +31,8 @@ export function useSEO(tool: Tool | undefined) {
     setMeta("og:type", "website", true);
     setMeta("og:url", origin + tool.path, true);
     setMeta("og:image", ogImage, true);
-    setMeta("og:image:alt", `${tool.name} — DevUtils`, true);
-    setMeta("og:site_name", "DevUtils", true);
+    setMeta("og:image:alt", `${tool.name} — ${SITE_NAME}`, true);
+    setMeta("og:site_name", SITE_NAME, true);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", tool.metaTitle);
     setMeta("twitter:description", tool.metaDescription);
@@ -60,7 +61,7 @@ export function useSEO(tool: Tool | undefined) {
       name: tool.name,
       description: tool.metaDescription,
       url: window.location.origin + tool.path,
-      applicationCategory: "DeveloperApplication",
+      applicationCategory: "WebApplication",
       operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     });

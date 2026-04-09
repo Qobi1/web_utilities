@@ -27,7 +27,7 @@ export default function ToolPage() {
   useSEO(tool);
 
   useEffect(() => {
-    if (tool) localStorage.setItem("devutils-active-tool", tool.id);
+    if (tool) localStorage.setItem("utilityhub-active-tool", tool.id);
   }, [tool]);
 
   const handleSelectTool = (id: string) => {

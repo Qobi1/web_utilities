@@ -1,11 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { SITE_NAME } from "@/lib/brand";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = "Page not found — DevUtils";
+    document.title = `Page not found — ${SITE_NAME}`;
     let robots = document.querySelector('meta[name="robots"]');
     if (!robots) {
       robots = document.createElement("meta");

@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://devutils.app/sitemap.xml
+Sitemap: https://toolifyhub.net/sitemap.xml
