@@ -1,31 +1,38 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Index from "./pages/Index";
-import ToolPage from "./pages/ToolPage";
-import NotFound from "./pages/NotFound";
+import { lazy, Suspense } from "react";
 
-const queryClient = new QueryClient();
+const Index = lazy(() => import("./pages/Index"));
+const ToolPage = lazy(() => import("./pages/ToolPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+function RouteLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="h-6 w-6 border-2 border-muted-foreground border-t-foreground rounded-full animate-spin" />
+    </div>
+  );
+}
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+  <ThemeProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Suspense fallback={<RouteLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/:toolId" element={<ToolPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+        </Suspense>
+      </BrowserRouter>
+    </TooltipProvider>
+  </ThemeProvider>
 );
 
 export default App;

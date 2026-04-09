@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Tool } from "@/lib/tools";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export function useSEO(tool: Tool | undefined) {
   useEffect(() => {
@@ -18,17 +19,23 @@ export function useSEO(tool: Tool | undefined) {
       el.setAttribute("content", content);
     };
 
+    const origin = window.location.origin || SITE_ORIGIN;
+    const ogImage = `${origin}/og-image.png`;
+
     setMeta("description", tool.metaDescription);
     setMeta("keywords", tool.keywords);
     setMeta("robots", "index, follow");
     setMeta("og:title", tool.metaTitle, true);
     setMeta("og:description", tool.metaDescription, true);
     setMeta("og:type", "website", true);
-    setMeta("og:url", window.location.origin + tool.path, true);
+    setMeta("og:url", origin + tool.path, true);
+    setMeta("og:image", ogImage, true);
+    setMeta("og:image:alt", `${tool.name} — DevUtils`, true);
     setMeta("og:site_name", "DevUtils", true);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", tool.metaTitle);
     setMeta("twitter:description", tool.metaDescription);
+    setMeta("twitter:image", ogImage);
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;

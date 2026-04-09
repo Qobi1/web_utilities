@@ -1,5 +1,5 @@
 import {
-  Binary, Type, Clock, Wrench, Code,
+  Binary, Type, Clock, Code,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -25,9 +25,16 @@ export function AppSidebar({ activeTool, onSelectTool }: Props) {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
-        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Wrench className="h-5 w-5 text-foreground" aria-hidden="true" />
-          {!collapsed && <span className="font-semibold text-sm">DevUtils</span>}
+        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity min-w-0" aria-label="DevUtils home">
+          <img
+            src="/logo-mark.svg"
+            alt=""
+            width={28}
+            height={28}
+            className="h-7 w-7 shrink-0"
+            decoding="async"
+          />
+          {!collapsed && <span className="font-semibold text-sm truncate">DevUtils</span>}
         </Link>
       </SidebarHeader>
       <SidebarContent>
