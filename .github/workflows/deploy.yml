@@ -37,3 +37,4 @@ jobs:
             -e "ssh -i ~/.ssh/github_actions_ec2" \
             ./dist/ \
             ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/web_utilities/dist/
+          
