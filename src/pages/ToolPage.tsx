@@ -9,6 +9,7 @@ import { toolLoaders } from "@/lib/toolLoaders";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { lazy, Suspense, useEffect, useMemo } from "react";
+import { SiteFooter } from "@/components/SiteFooter";
 
 function ToolLoader() {
   return (
@@ -62,7 +63,7 @@ export default function ToolPage() {
             </div>
             <ThemeToggle />
           </header>
-          <main className="flex-1 p-4 lg:p-6 max-w-6xl" role="main">
+          <main className="flex-1 p-4 lg:p-6 max-w-6xl w-full" role="main">
             {ActiveComponent ? (
               <Suspense fallback={<ToolLoader />}>
                 <ActiveComponent />
@@ -71,6 +72,7 @@ export default function ToolPage() {
               <div className="text-muted-foreground">Tool not found</div>
             )}
           </main>
+          <SiteFooter />
         </div>
       </div>
       <CommandPalette onSelect={handleSelectTool} />

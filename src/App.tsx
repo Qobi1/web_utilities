@@ -9,6 +9,8 @@ import { trackPageView } from "@/lib/analytics";
 
 const Index = lazy(() => import("./pages/Index"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
 const ToolPage = lazy(() => import("./pages/ToolPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -39,6 +41,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="/:toolId" element={<ToolPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

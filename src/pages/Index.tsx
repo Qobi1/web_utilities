@@ -4,6 +4,7 @@ import { tools } from "@/lib/tools";
 import { ArrowRight } from "lucide-react";
 import { SITE_ORIGIN } from "@/lib/site";
 import { SITE_NAME } from "@/lib/brand";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Index() {
   useEffect(() => {
@@ -75,11 +76,9 @@ export default function Index() {
         ))}
       </nav>
       </div>
-      <footer className="shrink-0 pt-6 border-t border-border w-full max-w-4xl text-center text-xs text-muted-foreground">
-        <Link to="/privacy" className="hover:text-foreground transition-colors underline-offset-4 hover:underline">
-          Privacy Policy
-        </Link>
-      </footer>
+      <div className="shrink-0 w-full max-w-4xl">
+        <SiteFooter />
+      </div>
     </div>
   );
 }

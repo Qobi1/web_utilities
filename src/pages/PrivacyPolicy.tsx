@@ -1,38 +1,22 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { SITE_NAME, PRIVACY_CONTACT_EMAIL } from "@/lib/brand";
 import { SITE_ORIGIN } from "@/lib/site";
+import { useNoIndexMeta } from "@/hooks/useNoIndexMeta";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const LAST_UPDATED = "April 9, 2026";
 
 export default function PrivacyPolicy() {
-  useEffect(() => {
-    document.title = `Privacy Policy — ${SITE_NAME}`;
-    const setMeta = (name: string, content: string, property = false) => {
-      const attr = property ? "property" : "name";
-      let el = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    setMeta("description", `Privacy Policy for ${SITE_NAME} (${SITE_ORIGIN}). How we collect, use, and protect your information.`);
-    setMeta("robots", "index, follow");
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = `${SITE_ORIGIN}/privacy`;
-  }, []);
+  useNoIndexMeta(
+    `Privacy Policy — ${SITE_NAME}`,
+    `Privacy Policy for ${SITE_NAME} (${SITE_ORIGIN}). How we collect, use, and protect your information.`,
+    "/privacy",
+  );
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-3xl mx-auto px-4 py-10 sm:py-14">
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="max-w-3xl mx-auto px-4 py-10 sm:py-14 flex-1 w-full">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
@@ -74,7 +58,16 @@ export default function PrivacyPolicy() {
               your email address and the contents of your message.
             </p>
 
-            <h3 className="text-base font-medium pt-2">1.2 Information collected automatically</h3>
+            <h3 className="text-base font-medium pt-2">1.2 User-pasted content and our servers</h3>
+            <p>
+              <strong>We do not store user-pasted data on our servers.</strong> Content you enter into our tools—such as
+              JSON, plain text, code snippets, formatted data, or files processed in the browser—is handled{" "}
+              <strong>client-side</strong> (in your device’s browser) unless a specific tool clearly states otherwise.
+              That means we do not persist your pasted JSON, text, or similar input on our servers for routine tool
+              operation; processing happens locally on your device to keep the experience fast and private.
+            </p>
+
+            <h3 className="text-base font-medium pt-2">1.3 Information collected automatically</h3>
             <p>
               When you access the Site, certain information may be collected automatically, including:
             </p>
@@ -107,7 +100,7 @@ export default function PrivacyPolicy() {
               .
             </p>
 
-            <h3 className="text-base font-medium pt-2">1.3 Cookies and similar technologies</h3>
+            <h3 className="text-base font-medium pt-2">1.4 Cookies and similar technologies</h3>
             <p>
               We and our partners may use cookies, local storage, pixels, and similar technologies to operate the Site,
               remember preferences, measure traffic, and—if enabled—support advertising. You can control cookies through
@@ -163,6 +156,30 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="text-muted-foreground">
               Where required by law, we will obtain consent before using non-essential cookies or serving personalized ads.
+            </p>
+
+            <h3 className="text-base font-medium pt-4">Google AdSense and DoubleClick Cookies</h3>
+            <p>
+              Google, as a third-party vendor, uses cookies to serve ads on our Site. Google’s use of the{" "}
+              <strong>DART cookie</strong> enables it and its partners to serve ads to users based on visits to our Site
+              and/or other sites on the Internet. Users may opt out of the use of the DART cookie for interest-based
+              advertising by visiting Google’s Ads Settings (linked above) and by reviewing{" "}
+              <a
+                href="https://policies.google.com/technologies/ads"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2 hover:no-underline"
+              >
+                Google’s Advertising Policies &amp; Technologies
+              </a>
+              .
+            </p>
+            <p>
+              <strong>DoubleClick:</strong> Google may use DoubleClick and related technologies to manage ad delivery and
+              measurement. These technologies may set or read cookies (including third-party cookies) to record information
+              such as whether a particular browser has been shown an ad, to cap how often you see an ad, and to measure
+              engagement. We do not control these cookies directly; you can manage preferences through Google’s tools and
+              your browser settings.
             </p>
           </section>
 
@@ -287,6 +304,7 @@ export default function PrivacyPolicy() {
           </section>
         </article>
       </div>
+      <SiteFooter />
     </div>
   );
 }
